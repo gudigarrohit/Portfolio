@@ -30,7 +30,7 @@ const projects = [
   },
 ];
 
-// Responsive animation
+// Animation
 const slideVariants = {
   enter: (dir) => ({
     x: dir > 0 ? 200 : -200,
@@ -51,6 +51,10 @@ export default function ProjectsSection() {
 
   const [[current, direction], setCurrent] = useState([0, 0]);
 
+  // 👉 Swipe state
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
   const paginate = useCallback((dir) => {
     setCurrent(([prev]) => {
       const next = (prev + dir + projects.length) % projects.length;
@@ -58,6 +62,7 @@ export default function ProjectsSection() {
     });
   }, []);
 
+  // 👉 Keyboard navigation
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === "ArrowRight") paginate(1);
@@ -66,6 +71,30 @@ export default function ProjectsSection() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [paginate]);
+
+  // 👉 Swipe logic
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+
+    if (distance > minSwipeDistance) {
+      paginate(1); // swipe left
+    } else if (distance < -minSwipeDistance) {
+      paginate(-1); // swipe right
+    }
+  };
 
   const p = projects[current];
 
@@ -103,10 +132,10 @@ export default function ProjectsSection() {
       </div>
 
       {/* Slider */}
-      <div className="max-w-3xl mx-auto relative ">
+      <div className="max-w-3xl mx-auto relative">
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mb-[clamp(1rem,3vw,2rem)] ">
+        <div className="flex justify-center gap-2 mb-[clamp(1rem,3vw,2rem)]">
           {projects.map((_, i) => (
             <button
               key={i}
@@ -128,8 +157,13 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* Card */}
-        <div className="relative overflow-hidden rounded-2xl min-h-[clamp(280px,40vw,340px)]">
+        {/* Card (Swipe Enabled) */}
+        <div
+          className="relative overflow-hidden rounded-2xl min-h-[clamp(280px,40vw,340px)] cursor-grab active:cursor-grabbing"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -203,14 +237,14 @@ export default function ProjectsSection() {
         <div className="flex justify-center gap-4 mt-[clamp(1.5rem,4vw,2rem)]">
           <motion.button
             onClick={() => paginate(-1)}
-            className="w-[clamp(2.5rem,5vw,3rem)] cursor-pointer h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/5 backdrop-blur-lg flex items-center justify-center text-gray-400 hover:text-white"
+            className="w-[clamp(2.5rem,5vw,3rem)] h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/5 backdrop-blur-lg flex items-center justify-center text-gray-400 hover:text-white"
           >
             <ChevronLeft size={18} />
           </motion.button>
 
           <motion.button
             onClick={() => paginate(1)}
-            className="w-[clamp(2.5rem,5vw,3rem)] cursor-pointer  h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/5 backdrop-blur-lg flex items-center justify-center text-gray-400 hover:text-white"
+            className="w-[clamp(2.5rem,5vw,3rem)] h-[clamp(2.5rem,5vw,3rem)] rounded-full bg-white/5 backdrop-blur-lg flex items-center justify-center text-gray-400 hover:text-white"
           >
             <ChevronRight size={18} />
           </motion.button>
