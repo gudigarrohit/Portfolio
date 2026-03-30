@@ -18,7 +18,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative py-[clamp(1rem,5vw,6rem)] flex items-center justify-center px-[clamp(1rem,8vw,6rem)] overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-[clamp(1rem,8vw,6rem)] overflow-hidden"
     >
       {/* BLOBS (responsive) */}
       <MorphingBlob className="absolute top-[10%] right-[10%] w-[clamp(200px,30vw,400px)] h-[clamp(200px,30vw,400px)] opacity-[0.06]" />
