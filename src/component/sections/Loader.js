@@ -11,17 +11,22 @@ const Loader = ({ onComplete }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black px-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black px-4 overflow-hidden"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="text-center">
+      <div className="text-center max-w-full">
 
         {/* 🔥 NAME */}
         <motion.div
-          className="font-display font-serif text-stark-white 
-          text-[clamp(1rem,6vw,1.5rem)] tracking-wide"
+          className="
+            font-display font-serif text-stark-white
+            text-[clamp(1rem,5vw,1.4rem)]
+            tracking-[0.15em]
+            text-center
+            break-words
+          "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -31,9 +36,15 @@ const Loader = ({ onComplete }) => {
 
         {/* ✨ LINE */}
         <motion.div
-          className="mx-auto mt-[clamp(0.8rem,2vw,1.2rem)] 
-          h-[2px] aurora-gradient 
-          w-[clamp(6rem,20vw,10rem)] origin-left"
+          className="
+            mx-auto
+            mt-3
+            h-[2px]
+            aurora-gradient
+            w-[40%]
+            max-w-[160px]
+            origin-left
+          "
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{
@@ -45,10 +56,13 @@ const Loader = ({ onComplete }) => {
 
         {/* 📝 TEXT */}
         <motion.p
-          className="text-muted-grey font-body uppercase 
-          mt-[clamp(0.6rem,1.5vw,1rem)]
-          text-[clamp(0.65rem,1vw,0.7rem)]
-          tracking-[0.3em]"
+          className="
+            text-muted-grey font-body uppercase
+            mt-2
+            text-[clamp(0.6rem,0.9vw,0.75rem)]
+            tracking-[0.25em]
+            text-center
+          "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
