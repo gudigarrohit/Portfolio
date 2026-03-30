@@ -205,7 +205,7 @@ const HeroSection = () => {
 
       {/* SCROLL */}
       <motion.div
-        className="absolute bottom-[clamp(.8rem,8vw,1rem)] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        className="absolute bottom-[clamp(.1rem,8vw,1rem)] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
         <span className="text-gray-400 text-[clamp(0.55rem,0.8vw,0.7rem)] uppercase">
           Scroll

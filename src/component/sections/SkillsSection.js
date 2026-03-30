@@ -138,7 +138,7 @@ export default function SkillsSection() {
                                     onMouseLeave={() => setHovered(null)}
                                 >
                                     <motion.div
-                                        className="px-[clamp(0.5rem,1vw,0.7rem)] py-[clamp(0.3rem,0.6vw,0.4rem)] text-[clamp(0.775rem,1vw,.79rem)] font-medium tracking-wide border rounded-md bg-black/40 backdrop-blur-sm whitespace-nowrap"
+                                        className="px-[clamp(0.5rem,1vw,0.7rem)] py-[clamp(0.3rem,0.6vw,0.4rem)] text-[clamp(0.78rem,1vw,.79rem)] font-medium tracking-wide border rounded-md bg-black/40 backdrop-blur-sm whitespace-nowrap"
                                         animate={{
                                             scale: hovered === skill.name ? 1.2 : 1,
                                             color: hovered === skill.name ? "#fff" : "#aaa",
