@@ -221,10 +221,10 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="flex gap-4">
-                  <button className="flex items-center gap-2 text-gray-400 hover:text-white">
+                  <button className="flex items-center gap-2 text-gray-400 cursor-pointer hover:text-white">
                     <ExternalLink size={14} /> Live
                   </button>
-                  <button className="flex items-center gap-2 text-gray-400 hover:text-white">
+                  <button className="flex items-center gap-2 text-gray-400 cursor-pointer hover:text-white">
                     <FaGithub size={14} /> Code
                   </button>
                 </div>
