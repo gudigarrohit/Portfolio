@@ -73,18 +73,30 @@ const Footer = () => {
           </div>
 
           {/* Button */}
-          <motion.button
-            onClick={scrollToTop}
-            className="glass-panel w-[clamp(2.5rem,4vw,2.75rem)] h-[clamp(2.5rem,4vw,2.75rem)] rounded-full flex items-center justify-center text-muted-grey hover:text-stark-white group"
-            whileHover={{
-              y: -4,
-              boxShadow: "0 0 20px rgba(79,70,229,0.3)",
-            }}
-            whileTap={{ scale: .95 }}
-            aria-label="Back to top"
-          >
-            <ArrowUp size={16} />
-          </motion.button>
+       <motion.button
+  onClick={scrollToTop}
+  className="
+    w-[clamp(2.5rem,4vw,2.75rem)]
+    h-[clamp(2.5rem,4vw,2.75rem)]
+    p-[1.5px]
+    rounded-full
+    
+  "
+  whileHover={{ y: -4 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <span
+    className="
+      w-full h-full
+      rounded-full
+      flex items-center justify-center
+      glass-panel
+      text-muted-grey hover:text-stark-white border border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)]
+    "
+  >
+    ↑
+  </span>
+</motion.button>
         </div>
       </div>
     </footer>
