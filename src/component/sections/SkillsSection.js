@@ -56,7 +56,7 @@ export default function SkillsSection() {
 
     return (
         <section
-        id="skills" className="min-h-screen flex items-center px-[clamp(1rem,4vw,2rem)] py-[clamp(4rem,8vw,6rem)]">
+            id="skills" className="min-h-screen flex items-center px-[clamp(1rem,4vw,2rem)] py-[clamp(4rem,8vw,6rem)]">
             <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-[clamp(2rem,5vw,3rem)] items-center">
 
                 {/* LEFT */}
@@ -103,13 +103,15 @@ export default function SkillsSection() {
                     >
 
                         {/* Rings */}
-                        {[120, 180, 240, 300].map((r) => (
+                        {[120, 180, 240, 300].map((r, i) => (
                             <div
                                 key={r}
-                                className="absolute border border-gray-700 rounded-full"
+                                className="absolute rounded-full border border-gray-900/60 shadow-inner shadow-black/40" 
                                 style={{
                                     width: r * 2,
                                     height: r * 2,
+                                    borderColor: `rgba(31, 41, 55, ${0.2 + i * 0.15})`, // darker outer rings
+
                                 }}
                             />
                         ))}
@@ -136,7 +138,7 @@ export default function SkillsSection() {
                                     onMouseLeave={() => setHovered(null)}
                                 >
                                     <motion.div
-                                        className="px-[clamp(0.5rem,1vw,0.7rem)] py-[clamp(0.3rem,0.6vw,0.4rem)] text-[clamp(0.76rem,1vw,.79rem)] font-medium tracking-wide border rounded-md bg-black/40 backdrop-blur-sm whitespace-nowrap"
+                                        className="px-[clamp(0.5rem,1vw,0.7rem)] py-[clamp(0.3rem,0.6vw,0.4rem)] text-[clamp(0.775rem,1vw,.79rem)] font-medium tracking-wide border rounded-md bg-black/40 backdrop-blur-sm whitespace-nowrap"
                                         animate={{
                                             scale: hovered === skill.name ? 1.2 : 1,
                                             color: hovered === skill.name ? "#fff" : "#aaa",

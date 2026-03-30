@@ -161,7 +161,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 rounded-xl p-[1px]  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" />
 
                 {/* 🔥 INNER (NO GRADIENT BG) */}
-                <div className="relative flex items-center gap-2 px-[clamp(0.9rem,2vw,1.4rem)] py-[clamp(0.5rem,1vw,0.8rem)] text-[clamp(0.75rem,1vw,0.9rem)] bg-black rounded-xl text-white whitespace-nowrap ">
+                <div className="relative flex items-center gap-2 px-[clamp(0.9rem,2vw,1.4rem)] py-[clamp(0.5rem,1vw,0.8rem)] text-[clamp(0.75rem,1vw,0.9rem)] gradient-border bg-black rounded-2xl text-white whitespace-nowrap ">
 
                   <FaFolderOpen size={14} />
                   View Projects
@@ -188,7 +188,7 @@ const HeroSection = () => {
               >
                 <div className="absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-60" />
 
-                <div className="relative flex items-center gap-2 px-[clamp(0.9rem,2vw,1.4rem)] py-[clamp(0.5rem,1vw,0.8rem)] text-[clamp(0.75rem,1vw,0.9rem)] bg-black rounded-xl text-gray-300 hover:text-white whitespace-nowrap">
+                <div className="relative flex items-center gap-2 px-[clamp(0.9rem,2vw,1.4rem)] py-[clamp(0.5rem,1vw,0.8rem)] text-[clamp(0.75rem,1vw,0.9rem)] bg-black rounded-2xl text-gray-300 hover:text-white whitespace-nowrap">
 
                   <FiMail size={14} />
                   Contact Me

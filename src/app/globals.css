@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5 {
   color: #888;
 }
 .gradient-border {
-  border: .5px solid transparent;
+  border: .2px solid ;
   border-image: linear-gradient(
     to right,
     #6366f1,  /* indigo-500 */
