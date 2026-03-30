@@ -18,7 +18,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen  flex items-center justify-center px-[clamp(1rem,8vw,6rem)] overflow-hidden"
+      className="relative py-[clamp(1rem,5vw,6rem)] flex items-center justify-center px-[clamp(1rem,8vw,6rem)] overflow-hidden"
     >
       {/* BLOBS (responsive) */}
       <MorphingBlob className="absolute top-[10%] right-[10%] w-[clamp(200px,30vw,400px)] h-[clamp(200px,30vw,400px)] opacity-[0.06]" />
@@ -132,6 +132,7 @@ const HeroSection = () => {
             >
               Crafting modern web experiences with clean code and thoughtful design.
               Based in Shimoga, India.
+              lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, doloremque.lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, doloremque.
             </motion.p>
 
             <motion.div
@@ -204,7 +205,7 @@ const HeroSection = () => {
 
       {/* SCROLL */}
       <motion.div
-        className="absolute bottom-[clamp(.8rem,3vw,1rem)] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        className="absolute bottom-[clamp(.8rem,8vw,1rem)] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
         <span className="text-gray-400 text-[clamp(0.55rem,0.8vw,0.7rem)] uppercase">
           Scroll
