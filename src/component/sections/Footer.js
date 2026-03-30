@@ -49,7 +49,7 @@ const Footer = () => {
               },
               {
                 icon: FaLinkedin,
-                href: "https://www.linkedin.com/in/gudigarrohit?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+                href: "https://www.linkedin.com/in/gudigarrohit",
                 label: "LinkedIn",
               },
               {

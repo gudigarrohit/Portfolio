@@ -26,7 +26,7 @@ export default function ContactSection() {
   const socialLinks = [
     { icon: FiMail, label: "Email", href: "mailto:gudigarrohit@gmail.com" },
     { icon: FaGithub, label: "GitHub", href: "https://github.com/gudigarrohit" },
-    { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/gudigarrohit?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+    { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/gudigarrohit" },
   ];
 
   return (
