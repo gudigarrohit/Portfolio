@@ -16,17 +16,15 @@ const handleUpload = async (e) => {
   try {
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("upload_preset", "gallery_upload");
 
-    const res = await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!res.ok) {
-      console.error("Upload failed");
-      setLoading(false);
-      return;
-    }
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/auto/upload`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
     const data = await res.json();
 
@@ -36,10 +34,10 @@ const handleUpload = async (e) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ url: data.url }),
+      body: JSON.stringify({ url: data.secure_url }),
     });
 
-    setImageUrl(data.url);
+    setImageUrl(data.secure_url);
     onUpload();
   } catch (err) {
     console.error(err);
