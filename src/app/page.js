@@ -68,7 +68,7 @@ export default function Page() {
 
       <Footer />
   
-        <UploadImage onUpload={() => setRefresh(!refresh)} />
+        {/* <UploadImage onUpload={() => setRefresh(!refresh)} /> */}
         <Gallery refresh={refresh} />
     
 
