@@ -13,9 +13,9 @@ import ContactSection from "@/component/sections/ContactSection";
 import Footer from "@/component/sections/Footer";
 import CursorLight from "@/component/sections/CursorLight";
 import Loader from "@/component/sections/Loader";
-import Gallery from "@/component/sections/Gallery";
+// import Gallery from "@/component/sections/Gallery";
 
-import UploadImage from "@/component/sections/UploadImage";
+// import UploadImage from "@/component/sections/UploadImage";
 
 const sectionIds = ["hero", "about", "skills", "projects", "achievements", "contact", "footer"];
 
@@ -68,8 +68,8 @@ export default function Page() {
 
       <Footer />
   
-        <UploadImage onUpload={() => setRefresh(!refresh)} />
-        <Gallery refresh={refresh} />
+        {/* <UploadImage onUpload={() => setRefresh(!refresh)} />
+        <Gallery refresh={refresh} /> */}
     
 
     </div>
