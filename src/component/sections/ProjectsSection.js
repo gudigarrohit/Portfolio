@@ -103,6 +103,7 @@ export default function ProjectsSection() {
       id="projects"
       className="py-[clamp(4rem,8vw,6rem)] px-[clamp(1rem,4vw,2rem)]"
     >
+      
       {/* Heading */}
       <div ref={ref} className="max-w-6xl mx-auto mb-[clamp(2rem,6vw,4rem)]">
         <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-[clamp(1.5rem,4vw,3rem)]">

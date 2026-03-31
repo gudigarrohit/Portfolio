@@ -7,7 +7,8 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="py-[clamp(3rem,6vw,4rem)] px-[clamp(1rem,4vw,2rem)] border-t border-[rgba(255,255,255,0.04)]">
+    <footer id="footer"
+     className="min-h-[40vh] px-[clamp(1rem,4vw,2rem)] py-[clamp(1rem,4vw,3rem)] border-t border-[rgba(255,255,255,0.04)]">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.div

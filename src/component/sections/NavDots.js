@@ -11,10 +11,13 @@ const sections = [
   { id: "projects", label: "Projects" },
   { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
+    { id: "footer", label: "Footer" },
+
 ];
 
 export default function NavDots({ activeSection }) {
   const [hovered, setHovered] = useState(null);
+
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({
@@ -37,8 +40,8 @@ export default function NavDots({ activeSection }) {
             <motion.div
               className="rounded-full"
               animate={{
-                width: activeSection === s.id ? 10 : 6,
-                height: activeSection === s.id ? 10 : 6,
+                width: activeSection === s.id ? 10 : 7,
+                height: activeSection === s.id ? 10 : 7,
                 background:
                   activeSection === s.id
                     ? "linear-gradient(135deg, #4F46E5, #EC4899)"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {  AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import NavDots from "@/component/sections/NavDots";
 import HeroSection from "@/component/sections/HeroSection";
@@ -13,14 +13,20 @@ import ContactSection from "@/component/sections/ContactSection";
 import Footer from "@/component/sections/Footer";
 import CursorLight from "@/component/sections/CursorLight";
 import Loader from "@/component/sections/Loader";
+import Gallery from "@/component/sections/Gallery";
 
-const sectionIds = ["hero", "about", "skills", "projects", "achievements", "contact"];
+import UploadImage from "@/component/sections/UploadImage";
+
+const sectionIds = ["hero", "about", "skills", "projects", "achievements", "contact", "footer"];
 
 
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("hero");
   const [loading, setLoading] = useState(true);
+
+  const [refresh, setRefresh] = useState(false);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,6 +67,11 @@ export default function Page() {
       </main>
 
       <Footer />
+  
+        <UploadImage onUpload={() => setRefresh(!refresh)} />
+        <Gallery refresh={refresh} />
+    
+
     </div>
   );
 }
