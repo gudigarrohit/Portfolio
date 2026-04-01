@@ -15,7 +15,7 @@ import CursorLight from "@/component/sections/CursorLight";
 import Loader from "@/component/sections/Loader";
 import Gallery from "@/component/sections/Gallery";
 
-import UploadImage from "@/component/sections/UploadImage";
+// import UploadImage from "@/component/sections/UploadImage";
 
 const sectionIds = ["hero", "about", "skills", "projects", "achievements", "contact", "footer"];
 
@@ -68,7 +68,7 @@ export default function Page() {
 
       <Footer />
       <div className="min-h-screen p-6">
-        <UploadImage onUpload={() => setRefresh(!refresh)} />
+            {/* <UploadImage onUpload={() => setRefresh(!refresh)} /> */}
         <Gallery refresh={refresh} />
       </div>
 
