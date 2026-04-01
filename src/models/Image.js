@@ -3,9 +3,11 @@ import mongoose from "mongoose";
 const ImageSchema = new mongoose.Schema(
   {
     url: String,
-    createdAt: { type: Date, default: Date.now },
-  }
+    type: String,
+  },
+  { timestamps: true }
 );
 
+// ✅ prevents crash in Next.js hot reload
 export default mongoose.models.Image ||
   mongoose.model("Image", ImageSchema);

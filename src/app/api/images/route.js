@@ -1,18 +1,26 @@
-import { connectDB } from "@/lib/mongodb";
-import Image from "@/models/Image";
+import { connectDB } from "../../../lib/db";
+import Image from "../../../models/Image";
+
+export const runtime = "nodejs";
 
 export async function GET() {
   try {
-    await connectDB();
+    console.log("STEP 1: API HIT");
 
-    const images = await Image.find().sort({ createdAt: -1 });
+    await connectDB();
+    console.log("STEP 2: DB CONNECTED");
+
+    const images = await Image.find();
+    console.log("STEP 3: DATA:", images);
 
     return Response.json(images);
   } catch (error) {
-    console.error("GET ERROR:", error);
-    return new Response(JSON.stringify({ error: "Failed to fetch images" }), {
-      status: 500,
-    });
+    console.error("🔥 FULL ERROR:", error);
+
+    return new Response(
+      JSON.stringify({ error: error.message }),
+      { status: 500 }
+    );
   }
 }
 
@@ -20,15 +28,16 @@ export async function POST(req) {
   try {
     await connectDB();
 
-    const { url } = await req.json();
+    const body = await req.json();
 
-    const saved = await Image.create({ url });
-
-    return Response.json(saved);
-  } catch (error) {
-    console.error("POST ERROR:", error);
-    return new Response(JSON.stringify({ error: "Failed to save image" }), {
-      status: 500,
+    const newImage = await Image.create({
+      url: body.url,
+      type: body.type,
     });
+
+    return Response.json(newImage);
+  } catch (error) {
+    console.error(error);
+    return new Response("Error saving image", { status: 500 });
   }
 }

@@ -1,7 +1,9 @@
 import { v2 as cloudinary } from "cloudinary";
 
+export const runtime = "nodejs"; // ✅ REQUIRED for Cloudinary
+
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME, // ✅ FIXED
+  cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API_KEY,
   api_secret: process.env.CLOUD_API_SECRET,
 });
@@ -19,19 +21,24 @@ export async function POST(req) {
     const buffer = Buffer.from(bytes);
 
     const result = await new Promise((resolve, reject) => {
-      cloudinary.uploader.upload_stream(
-        {
-          resource_type: "auto", // ✅ image + video
-          folder: "gallery",
-        },
-        (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
-        }
-      ).end(buffer);
+      cloudinary.uploader
+        .upload_stream(
+          {
+            resource_type: "auto", // ✅ supports image + video
+            folder: "gallery",
+          },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        )
+        .end(buffer);
     });
 
-    return Response.json({ url: result.secure_url });
+    return Response.json({
+      url: result.secure_url,
+      type: result.resource_type, // ✅ IMPORTANT
+    });
   } catch (error) {
     console.error("UPLOAD ERROR:", error);
 
