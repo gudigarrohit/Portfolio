@@ -37,7 +37,7 @@ export default function Gallery({ refresh, setIsModalOpen }) {
   return (
     <>
       {/* 🔳 GRID */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto ">
         {images.map((img) => (
           <div
             key={img._id}
