@@ -16,11 +16,11 @@ export const projects = [
         slug: "hospital-management",
         live: "https://your-live-link.com",
         github: "https://github.com/your-repo",
-        // images: [
-        //     "https://res.cloudinary.com/dyvpe5aio/image/upload/v1775017008/gallery/tdud3bpnzcyhd1kzlj0r.jpg",
-        //     "https://res.cloudinary.com/dyvpe5aio/image/upload/v1775017076/gallery/eops9vgk3zji0vye8pjy.jpg",
-        //     "https://res.cloudinary.com/dyvpe5aio/image/upload/v1775018084/gallery/pktxr2ioc7ucdgwsfjji.jpg"
-        // ],
+        images: [
+            "https://res.cloudinary.com/dyvpe5aio/image/upload/v1775017008/gallery/tdud3bpnzcyhd1kzlj0r.jpg",
+            "https://res.cloudinary.com/dyvpe5aio/image/upload/v1775017076/gallery/eops9vgk3zji0vye8pjy.jpg",
+            "https://res.cloudinary.com/dyvpe5aio/image/upload/v1775018084/gallery/pktxr2ioc7ucdgwsfjji.jpg"
+        ],
     },
 
     {
