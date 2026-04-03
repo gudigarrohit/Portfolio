@@ -13,7 +13,7 @@ import ContactSection from "@/component/sections/ContactSection";
 import Footer from "@/component/sections/Footer";
 import CursorLight from "@/component/sections/CursorLight";
 import Loader from "@/component/sections/Loader";
-import Gallery from "@/component/sections/Gallery";
+// import Gallery from "@/component/sections/Gallery";
 
 // import UploadImage from "@/component/sections/UploadImage";
 
@@ -25,7 +25,7 @@ export default function Page() {
   const [activeSection, setActiveSection] = useState("hero");
   const [loading, setLoading] = useState(true);
 
-  const [refresh, setRefresh] = useState(false);
+  // const [refresh, setRefresh] = useState(false);
 
 
   useEffect(() => {
@@ -67,6 +67,12 @@ export default function Page() {
       </main>
 
       <Footer />
+      {/* <div className="min-h-screen p-6">
+          <UploadImage onUpload={() => setRefresh(!refresh)} /> 
+        <Gallery refresh={refresh} />
+      </div> */}
+
+
     </div>
   );
 }
