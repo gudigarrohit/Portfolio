@@ -5,30 +5,9 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
-// Data
-const projects = [
-  {
-    title: "Hospital Management System",
-    desc: "Manage hospital operations, patient records, and appointments.",
-    tech: ["React", "Node.js", "Express"],
-    num: "01",
-    accent: "#4F46E5",
-  },
-  {
-    title: "Doctor Appointment Booking",
-    desc: "Online system for booking doctor appointments.",
-    tech: ["React", "JS", "CSS"],
-    num: "02",
-    accent: "#7C3AED",
-  },
-  {
-    title: "Admin Dashboard",
-    desc: "Analytics dashboard with charts and user management.",
-    tech: ["React", "Bootstrap"],
-    num: "03",
-    accent: "#EC4899",
-  },
-];
+import { useRouter } from "next/navigation";
+import { projects } from "@/data/projects";
+
 
 // Animation
 const slideVariants = {
@@ -46,6 +25,7 @@ const slideVariants = {
 };
 
 export default function ProjectsSection() {
+  const router = useRouter();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -103,7 +83,7 @@ export default function ProjectsSection() {
       id="projects"
       className="py-[clamp(4rem,8vw,6rem)] px-[clamp(1rem,4vw,2rem)]"
     >
-      
+
       {/* Heading */}
       <div ref={ref} className="max-w-6xl mx-auto mb-[clamp(2rem,6vw,4rem)]">
         <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-[clamp(1.5rem,4vw,3rem)]">
@@ -168,13 +148,14 @@ export default function ProjectsSection() {
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
+              onClick={() => router.push(`/projects/${p.slug}`)}
               custom={direction}
               variants={slideVariants}
               initial="enter"
               animate="center"
               exit="exit"
               transition={{ type: "spring", stiffness: 250, damping: 25 }}
-              className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-[clamp(1.5rem,4vw,2.5rem)] relative"
+              className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-[clamp(1.5rem,4vw,2.5rem)] relative cursor-pointer hover:scale-[1.02] transition"
             >
               {/* Watermark */}
               <span
@@ -222,10 +203,23 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="flex gap-4">
-                  <button className="flex items-center gap-2 text-gray-400 cursor-pointer hover:text-white">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(p.live, "_blank");
+                    }}
+                    className="flex items-center gap-2 text-gray-400 hover:text-white"
+                  >
                     <ExternalLink size={14} /> Live
                   </button>
-                  <button className="flex items-center gap-2 text-gray-400 cursor-pointer hover:text-white">
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(p.github, "_blank");
+                    }}
+                    className="flex items-center gap-2 text-gray-400 hover:text-white"
+                  >
                     <FaGithub size={14} /> Code
                   </button>
                 </div>
