@@ -67,12 +67,6 @@ export default function Page() {
       </main>
 
       <Footer />
-      <div className="min-h-screen p-6">
-            {/* <UploadImage onUpload={() => setRefresh(!refresh)} /> */}
-        <Gallery refresh={refresh} />
-      </div>
-
-
     </div>
   );
 }
