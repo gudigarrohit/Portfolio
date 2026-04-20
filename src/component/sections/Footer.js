@@ -7,97 +7,87 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer id="footer"
-     className="min-h-[40vh] px-[clamp(1rem,4vw,2rem)] py-[clamp(1rem,4vw,3rem)] border-t border-[rgba(255,255,255,0.04)]">
-      <div className="max-w-6xl mx-auto">
+    <footer
+      id="footer"
+      className="min-h-screen flex items-center px-[clamp(1rem,4vw,2rem)] border-t border-white/5"
+    >
+      <div className="max-w-6xl mx-auto w-full">
+
         {/* Heading */}
         <motion.div
-          className="mb-[clamp(2rem,5vw,3rem)]"
-          initial={{ opacity: 0, y: 20 }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-[clamp(1.8rem,4vw,3rem)] text-stark-white mb-1 leading-tight">
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold text-white leading-tight">
             LET'S CREATE
           </h2>
-          <h2 className="text-[clamp(1.8rem,4vw,3rem)] aurora-text leading-tight">
+
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 text-transparent bg-clip-text leading-tight">
             SOMETHING GREAT.
           </h2>
         </motion.div>
 
         {/* Bottom Row */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-[clamp(1.5rem,3vw,2rem)] text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
 
           {/* Left */}
-          <div className="text-muted-grey tracking-widest uppercase flex flex-col items-center sm:items-start gap-1">
-            <p className="text-[clamp(0.8rem,1vw,0.9rem)] flex items-center gap-1">
-              <span className="text-[clamp(1rem,1.2vw,1.2rem)]">©</span>
-              {new Date().getFullYear()}
+          <div className="text-gray-400 text-center sm:text-left tracking-widest uppercase">
+            <p className="text-sm flex items-center justify-center sm:justify-start gap-1">
+              © {new Date().getFullYear()}
             </p>
-            <p className="text-[clamp(0.6rem,0.9vw,0.7rem)]">
+            <p className="text-xs mt-1">
               Rohit A Gudigar. All rights reserved.
             </p>
           </div>
 
-          {/* Social */}
-          <div className="flex items-center gap-[clamp(1rem,2vw,1.5rem)]">
+          {/* Social Icons */}
+          <div className="flex items-center gap-6">
             {[
               {
                 icon: FaGithub,
                 href: "https://github.com/gudigarrohit",
-                label: "GitHub",
               },
               {
                 icon: FaLinkedin,
                 href: "https://www.linkedin.com/in/gudigarrohit",
-                label: "LinkedIn",
               },
               {
                 icon: Mail,
                 href: "mailto:gudigarrohit@gmail.com",
-                label: "Email",
               },
-            ].map((link) => (
+            ].map((link, index) => (
               <motion.a
-                key={link.label}
+                key={index}
                 href={link.href}
-                target={link.label !== "Email" ? "_blank" : undefined}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-grey hover:text-stark-white transition "
-                whileHover={{ scale : 1.2 }}
-                aria-label={link.label}
+                className="text-gray-400 hover:text-white transition"
+                whileHover={{ scale: 1.2 }}
               >
-                <link.icon size={18} />
+                <link.icon size={20} />
               </motion.a>
             ))}
           </div>
 
-          {/* Button */}
-       <motion.button
-  onClick={scrollToTop}
-  className="
-    w-[clamp(2.5rem,4vw,2.75rem)]
-    h-[clamp(2.5rem,4vw,2.75rem)]
-    p-[1.5px]
-    rounded-full
-    
-  "
-  whileHover={{ y: -4 }}
-  whileTap={{ scale: 0.95 }}
->
-  <span
-    className="
-      w-full h-full
-      rounded-full
-      flex items-center justify-center
-      glass-panel
-      text-muted-grey hover:text-stark-white border border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)]
-    "
-  >
-    ↑
-  </span>
-</motion.button>
+          {/* Scroll Button */}
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ y: -5 }}
+            whileTap={{ scale: 0.9 }}
+            className="relative w-11 h-11 rounded-full p-[1.5px] group"
+          >
+            {/* Gradient Border */}
+            <span className="absolute inset-0 rounded-full border-4 border-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-60 group-hover:opacity-100 blur-[1px]" />
+
+            {/* Glass Inner */}
+            <span className="relative flex items-center justify-center w-full h-full rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-gray-400 group-hover:text-white transition">
+              <ArrowUp size={18} />
+            </span>
+          </motion.button>
+
         </div>
       </div>
     </footer>

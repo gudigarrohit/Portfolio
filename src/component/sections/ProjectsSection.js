@@ -154,7 +154,7 @@ export default function ProjectsSection() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ type: "spring", stiffness: 250, damping: 25 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
               className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-[clamp(1.5rem,4vw,2.5rem)] relative cursor-pointer hover:scale-[1.02] transition"
             >
               {/* Watermark */}
@@ -224,6 +224,9 @@ export default function ProjectsSection() {
                   </button>
                 </div>
               </div>
+
+
+
             </motion.div>
           </AnimatePresence>
         </div>

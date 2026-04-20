@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Trophy, FileCheck } from "lucide-react";
@@ -8,27 +8,31 @@ const achievements = [
   {
     icon: Trophy,
     title: "Medical Hackathon",
-    desc: "Participated in a competitive medical hackathon, developing innovative healthcare solutions under real-world constraints.",
+    desc: "Participated in a competitive medical hackathon...",
     year: "2024",
     accent: "#6366F1",
+    link: "/achievements/medical-hackathon",
   },
   {
     icon: Award,
     title: "Technical Excellence",
-    desc: "Recognized for strong problem-solving skills and full-stack development capabilities across multiple projects.",
+    desc: "Recognized for strong problem-solving...",
     year: "2023",
     accent: "#8B5CF6",
+    link: "/achievements/technical-excellence",
   },
   {
     icon: FileCheck,
     title: "Certifications",
-    desc: "Completed certifications in modern web development including React, Node.js, and system design fundamentals.",
+    desc: "Completed certifications...",
     year: "2023",
     accent: "#EC4899",
+    link: "/achievements/certifications",
   },
 ];
 
 export default function AchievementsSection() {
+  const router = useRouter();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -65,7 +69,7 @@ export default function AchievementsSection() {
         <div className="relative">
 
           {/* 🔥 Vertical Neon Line */}
-       <motion.div
+          <motion.div
             className="absolute left-[clamp(0.8rem,2vw,1.25rem)] top-0 w-[2px] h-full bg-gradient-to-b from-transparent via-indigo-500/40 to-transparent"
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : {}}
@@ -82,6 +86,8 @@ export default function AchievementsSection() {
             {achievements.map((a, i) => (
               <motion.div
                 key={i}
+                onClick={() => router.push(a.link)}
+
                 className="relative ml-[clamp(2.8rem,6vw,3.2rem)] group"
 
                 initial={{ opacity: 0, y: 30 }}
