@@ -27,10 +27,17 @@ export default function Page() {
     <div className="min-h-screen bg-black text-white px-6 py-16">
 
       {/* Back */}
+   {/* 🔙 Back Button */}
       <motion.button
         onClick={() => router.back()}
-        whileHover={{ x: -4 }}
-        className="mb-10 flex items-center gap-2 text-gray-400 hover:text-white"
+        whileHover={{ x: -4, scale: 1.02 }}
+        whileTap={{ scale: 0.95 }}
+        className="mb-2 flex items-center gap-2 px-4 py-2 rounded-xl 
+             bg-white/5 backdrop-blur-md 
+             border border-white/10 
+             text-gray-300 hover:text-white 
+             hover:bg-white/10 
+             transition-all duration-300 shadow-lg"
       >
         <ArrowLeft size={18} />
         Back

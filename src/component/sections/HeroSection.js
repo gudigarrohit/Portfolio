@@ -92,7 +92,7 @@ const HeroSection = () => {
             <div className="absolute inset-0 aurora-gradient opacity-30 rounded-full" />
 
             <img
-              src="/me.jpg"
+              src="https://res.cloudinary.com/dyvpe5aio/image/upload/v1774976648/gallery/d0w0cbp3eycubjwy9i63.jpg"
               alt="Rohit A G"
               className="w-full h-full object-cover relative z-10"
             />

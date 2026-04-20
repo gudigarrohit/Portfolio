@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Mail, ArrowUp } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
 
 const Footer = () => {
   const scrollToTop = () =>
@@ -47,16 +49,23 @@ const Footer = () => {
           <div className="flex items-center gap-6">
             {[
               {
+                icon: Mail,
+                href: "mailto:gudigarrohit@gmail.com",
+              },
+
+              {
                 icon: FaGithub,
                 href: "https://github.com/gudigarrohit",
               },
+
               {
                 icon: FaLinkedin,
                 href: "https://www.linkedin.com/in/gudigarrohit",
               },
+
               {
-                icon: Mail,
-                href: "mailto:gudigarrohit@gmail.com",
+                icon: FaInstagram,
+                href: "https://www.instagram.com/__rohittt__04_",
               },
             ].map((link, index) => (
               <motion.a

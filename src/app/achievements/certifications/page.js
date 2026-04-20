@@ -8,14 +8,19 @@ export default function Certifications() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-black text-white px-[clamp(1rem,4vw,2rem)] py-[clamp(3rem,6vw,5rem)]">
+    <div className="min-h-screen bg-black text-white px-[clamp(1rem,4vw,2rem)] py-[clamp(1rem,2vw,2rem)]">
 
       {/* 🔙 Back Button */}
       <motion.button
         onClick={() => router.back()}
-        whileHover={{ x: -4 }}
+        whileHover={{ x: -4, scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
-        className="mb-10 flex items-center gap-2 text-gray-400 hover:text-white transition"
+        className="mb-2 flex items-center gap-2 px-4 py-2 rounded-xl 
+             bg-white/5 backdrop-blur-md 
+             border border-white/10 
+             text-gray-300 hover:text-white 
+             hover:bg-white/10 
+             transition-all duration-300 shadow-lg"
       >
         <ArrowLeft size={18} />
         Back
@@ -28,7 +33,7 @@ export default function Certifications() {
         transition={{ duration: 0.5 }}
         className="mb-12"
       >
-        <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4">
+        <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-1">
           <span className="bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text text-transparent">
             Certifications
           </span>

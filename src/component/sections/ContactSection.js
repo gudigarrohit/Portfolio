@@ -4,6 +4,9 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { FiMail, FiSend, FiArrowUpRight } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
+import emailjs from "emailjs-com";
 
 export default function ContactSection() {
   const ref = useRef(null);
@@ -17,16 +20,38 @@ export default function ContactSection() {
 
   const [focusedField, setFocusedField] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Thank you! I’ll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-  };
+ const handleSubmit = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .send(
+      "service_70ody7u",   // from EmailJS
+      "template_jzvkt7b",  // from EmailJS
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: "gudigarrohit@gmail.com",
+      },
+      "LE9-p-qnf_o-b8XBl"
+    )
+    .then(
+      () => {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      },
+      (error) => {
+        console.error(error);
+        alert("Failed to send message.");
+      }
+    );
+};
 
   const socialLinks = [
     { icon: FiMail, label: "Email", href: "mailto:gudigarrohit@gmail.com" },
     { icon: FaGithub, label: "GitHub", href: "https://github.com/gudigarrohit" },
     { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/gudigarrohit" },
+    { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/__rohittt__04_" },
   ];
 
   return (
