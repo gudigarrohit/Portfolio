@@ -60,8 +60,8 @@ export default function SkillsSection() {
             <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-[clamp(2rem,5vw,3rem)] items-center">
 
                 {/* LEFT */}
-                <div ref={ref} className="max-w-6xl mx-auto mb-[clamp(2rem,6vw,4rem)]">
-                    <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-[clamp(1.5rem,4vw,3rem)] items-start">
+                <div ref={ref} className=" mb-[clamp(2rem,6vw,4rem)]">
+                    <div className="flex flex-col gap-[clamp(1.5rem,4vw,2rem)] items-start">
 
                         {/* LEFT */}
                         <motion.div
@@ -81,12 +81,13 @@ export default function SkillsSection() {
 
                         {/* RIGHT */}
                         <motion.p
-                            className="text-gray-400 text-[clamp(0.9rem,1.3vw,1.1rem)] leading-relaxed md:mt-8"
+                            className="text-gray-400 text-[clamp(0.9rem,1.3vw,1.1rem)] leading-relaxed"
                             initial={{ opacity: 0, y: 20 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                         >
                             Technologies orbiting around my expertise.
                         </motion.p>
+                       
 
                     </div>
                 </div>
@@ -106,7 +107,7 @@ export default function SkillsSection() {
                         {[120, 180, 240, 300].map((r, i) => (
                             <div
                                 key={r}
-                                className="absolute rounded-full border border-gray-900/60 shadow-inner shadow-black/40" 
+                                className="absolute rounded-full border border-gray-900/60 shadow-inner shadow-black/40"
                                 style={{
                                     width: r * 2,
                                     height: r * 2,

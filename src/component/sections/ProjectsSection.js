@@ -86,7 +86,8 @@ export default function ProjectsSection() {
 
       {/* Heading */}
       <div ref={ref} className="max-w-6xl mx-auto mb-[clamp(2rem,6vw,4rem)]">
-        <div className="grid grid-cols-1 md:grid-cols-[40%_60%] gap-[clamp(1.5rem,4vw,3rem)]">
+        <div className="flex flex-col gap-[clamp(1.5rem,4vw,2rem)]">
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -103,12 +104,13 @@ export default function ProjectsSection() {
           </motion.div>
 
           <motion.p
-            className="text-gray-400 text-[clamp(0.9rem,1.3vw,1.1rem)] self-end"
+            className="text-gray-400 text-[clamp(0.9rem,1.3vw,1.1rem)]"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
           >
             Use arrows or swipe to explore projects.
           </motion.p>
+
         </div>
       </div>
 
